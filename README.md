@@ -22,6 +22,11 @@ Below are some screenshots of the application. Replace the placeholder images in
 
 ![Traffic Monitor](images/traffic_monitor.png)
 
+## Related Repositories
+
+- **Backend:** [Anomaly-Detection-Backend](https://github.com/PDhvanik/Anomaly-Detection-Backend)
+- **Model:** [Anomaly-detect-model](https://github.com/PDhvanik/Anomaly-detect-model)
+
 ## Project Structure
 
 ```
