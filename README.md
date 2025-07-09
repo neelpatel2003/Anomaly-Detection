@@ -22,6 +22,8 @@ Below are some screenshots of the application.
 
 ![Traffic Monitor](images/traffic_monitor.png)
 
+![Anomaly statistics](images/anomaly_statistics.png)
+
 ## Related Repositories
 
 - **Backend:** [Anomaly-Detection-Backend](https://github.com/PDhvanik/Anomaly-Detection-Backend)
