@@ -14,7 +14,7 @@ AI-powered web application for real-time network traffic analysis and anomaly de
 
 ## App Screenshots
 
-Below are some screenshots of the application. Replace the placeholder images in the `images/` folder with your actual screenshots.
+Below are some screenshots of the application.
 
 ![Home Page](images/homepage.png)
 
