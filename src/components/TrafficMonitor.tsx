@@ -16,7 +16,6 @@ const TrafficMonitor = () => {
     try {
       const res = await fetch("/api/results");
       const json = await res.json();
-      setIsRunning(json.Running);
       const formatMinute = (h, m) => `${h.toString().padStart(2, "0")}:${m.toString().padStart(2, "0")}`;
 
       const minuteBuckets = Array.from({ length: 1440 }, (_, i) => {
@@ -78,6 +77,7 @@ const TrafficMonitor = () => {
             onClick={async () => {
               try {
                 await fetch("/api/start", { method: "POST" });
+                setIsRunning(true);
               } catch (err) {
                 console.error("Failed to start capturing:", err);
               }
@@ -91,6 +91,7 @@ const TrafficMonitor = () => {
             onClick={async () => {
               try {
                 await fetch("/api/stop", { method: "POST" });
+                setIsRunning(false);
               } catch (err) {
                 console.error("Failed to stop capturing:", err);
               }
