@@ -5,7 +5,6 @@ import { useAuth } from "@/context/AuthContext";
 import Navbar from "@/components/Navbar";
 import TrafficMonitor from "@/components/TrafficMonitor";
 import AnomalyDetector from "@/components/AnomalyDetector";
-import HistoricalData from "@/components/HistoricalData";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Activity, BarChart, Clock } from "lucide-react";
 
@@ -56,13 +55,9 @@ const Dashboard = () => {
                 <Activity size={16} />
                 Traffic Monitor
               </TabsTrigger>
-              <TabsTrigger value="anomalies" className="flex items-center gap-1.5">
+              <TabsTrigger value="anomalies" className="flex items-center gap-1.5" style={{marginLeft:'150px'}}>
                 <BarChart size={16} />
                 Anomalies
-              </TabsTrigger>
-              <TabsTrigger value="historical" className="flex items-center gap-1.5">
-                <Clock size={16} />
-                Historical
               </TabsTrigger>
             </TabsList>
             
@@ -72,10 +67,6 @@ const Dashboard = () => {
             
             <TabsContent value="anomalies" className={`transition-all duration-500 ${animate ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '200ms' }}>
               <AnomalyDetector />
-            </TabsContent>
-            
-            <TabsContent value="historical" className={`transition-all duration-500 ${animate ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '200ms' }}>
-              <HistoricalData />
             </TabsContent>
           </Tabs>
         </div>
