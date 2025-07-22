@@ -1,5 +1,6 @@
 
 import React, { createContext, useContext, useState, useEffect } from "react";
+import axios from "axios";
 
 interface User {
   id: string;
@@ -42,50 +43,28 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const login = async (email: string, password: string) => {
     try {
       setLoading(true);
-      // In a real app, this would be an API call
-      console.log(`Logging in with ${email} and ${password}`);
-      
-      // Simulate API delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Mock user data
-      const userData = {
-        id: "user-1",
-        email,
-        name: email.split('@')[0]
-      };
-      
+      const res = await axios.post("http://localhost:4000/login", { email, password });
+      const userData = res.data;
       setUser(userData);
       localStorage.setItem("user", JSON.stringify(userData));
       setLoading(false);
-    } catch (error) {
+    } catch (error: any) {
       setLoading(false);
-      throw error;
+      throw new Error(error.response?.data?.error || "Login failed");
     }
   };
 
   const signup = async (name: string, email: string, password: string) => {
     try {
       setLoading(true);
-      // In a real app, this would be an API call
-      console.log(`Signing up with ${name}, ${email}, and ${password}`);
-      
-      // Simulate API delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Mock user data
-      const userData = {
-        id: "user-1",
-        email,
-        name
-      };
-      
+      const res = await axios.post("http://localhost:4000/signup", { name, email, password });
+      const userData = res.data;
       setUser(userData);
       localStorage.setItem("user", JSON.stringify(userData));
       setLoading(false);
-    } catch (error) {
+    } catch (error: any) {
       setLoading(false);
-      throw error;
+      throw new Error(error.response?.data?.error || "Signup failed");
     }
   };
 

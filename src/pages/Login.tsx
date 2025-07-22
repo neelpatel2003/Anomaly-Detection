@@ -36,8 +36,8 @@ const Login = () => {
       await login(values.email, values.password);
       toast.success("Login successful");
       navigate("/dashboard");
-    } catch (error) {
-      toast.error("Failed to log in. Please check your credentials.");
+    } catch (error: any) {
+      toast.error(error.message || "Failed to log in. Please check your credentials.");
     }
   };
 
@@ -117,9 +117,9 @@ const Login = () => {
                   </Link>
                 </div>
                 <div className="text-sm">
-                  <a href="#" className="text-muted-foreground hover:text-foreground">
+                  <Link to="/forgot-password" className="text-muted-foreground hover:text-foreground">
                     Forgot password?
-                  </a>
+                  </Link>
                 </div>
               </div>
               
